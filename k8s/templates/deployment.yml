@@ -5,19 +5,24 @@ metadata:
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
-    matchLabels: { app: hello-world }
+    matchLabels:
+      app: hello-world
   template:
     metadata:
-      labels: { app: hello-world }
+      labels:
+        app: hello-world
     spec:
-      topologySpreadConstraints:      # spread pods across nodes
+      topologySpreadConstraints:
         - maxSkew: 1
           topologyKey: kubernetes.io/hostname
           whenUnsatisfiable: ScheduleAnyway
           labelSelector:
-            matchLabels: { app: hello-world }
+            matchLabels:
+              app: hello-world
       containers:
         - name: app
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          ports: [{ containerPort: 5000 }]
-          resources: {{- toYaml .Values.resources | nindent 12 }}
+          ports:
+            - containerPort: 5000
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}

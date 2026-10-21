@@ -1,0 +1,34 @@
+
+
+# Terraform
+infra/
+.terraform/
+*.tf
+*.tf.json
+*.tfvars
+*.tfvars.json
+*.tfstate*
+.terraform.lock.hcl
+*.tfplan
+terraform.tfstate.d/
+crash.log
+
+# Keys and credentials
+*.pem
+*.key
+*.pub
+*.ppk
+id_rsa*
+id_ed25519*
+.ssh/
+.aws/
+.env
+.env.*
+!.env.example
+
+# Local Python files
+.venv/
+venv/
+__pycache__/
+*.pyc
+EOF
