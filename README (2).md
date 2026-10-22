@@ -2,7 +2,7 @@
 
 A Flask "Hello, World!" app deployed to Amazon EKS. Terraform builds the AWS infrastructure, Docker packages the app, and Helm defines the Kubernetes resources. Two deployment paths are included: **Jenkins** (`main` branch) and **GitHub Actions + Argo CD** (`gitops` branch).
 
-![Architecture diagram: a developer pushes to GitHub; the main branch deploys through Jenkins and the gitops branch deploys through GitHub Actions and Argo CD, both into one EKS cluster behind an ALB in a VPC](images/architecture.png)
+![Architecture diagram](images/architecture.png)
 
 ## At a glance
 
