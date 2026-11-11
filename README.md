@@ -9,12 +9,30 @@ flowchart LR
   GH -->|gitops branch| GA[GitHub Actions]
   J -->|push image| ECR[(Amazon ECR)]
   GA -->|push image| ECR
-  Users --> ALB[Load Balancer]
+  Users[Users] --> ALB[Load Balancer]
   ALB --> EKS[EKS cluster: Flask pods]
   J -->|helm upgrade| EKS
   ECR -->|pull image| EKS
   ARGO[Argo CD] -.->|watches gitops branch| GH
   ARGO --> EKS
+
+  classDef user fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+  classDef github fill:#D1C4E9,stroke:#512DA8,stroke-width:2px,color:#311B92
+  classDef cicd fill:#FFE0B2,stroke:#E65100,stroke-width:2px,color:#BF360C
+  classDef registry fill:#FFF59D,stroke:#F9A825,stroke-width:2px,color:#5D4037
+  classDef network fill:#B2EBF2,stroke:#00838F,stroke-width:2px,color:#006064
+  classDef cluster fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+  classDef gitops fill:#F8BBD0,stroke:#C2185B,stroke-width:2px,color:#880E4F
+
+  class Dev,Users user
+  class GH,GA github
+  class J cicd
+  class ECR registry
+  class ALB network
+  class EKS cluster
+  class ARGO gitops
+
+  linkStyle default stroke:#FB8C00,stroke-width:2px
 ```
 
 ## At a glance
